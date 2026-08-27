@@ -1,0 +1,5 @@
+FROM alpine:3.20
+RUN addgroup -S runner && adduser -S runner -G runner
+USER runner
+WORKDIR /workspace
+ENTRYPOINT ["/bin/sh"]
