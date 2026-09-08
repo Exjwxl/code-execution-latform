@@ -70,7 +70,7 @@ export default function Home() {
   const runCode = async () => {
     setStatus("queued"); setRunError("");
     try {
-      const response = await fetch("/api/submissions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language, source, tests }) });
+      const response =  await fetch("/api/submissions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ language, source, tests }) });
       const submission = await response.json();
       if (!response.ok) throw new Error(submission.error ?? "Submission rejected");
       setRunId(submission.id);
